@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>The Post-Storm Check - Beneath the Surface by The Snag Tag</title>
+<meta name="description" content="8 real post-storm checks for home buyers or owners: safe order, photos before cleanup, power lines, wet electrics, drying and receipts. Free, 5 minutes, no signup - from The Snag Tag.">
+<style>
+:root{
+  --accent:#86198F; --accent-dark:#2D5B9A; --accent-rgb:134,25,143;
+}
+body[data-mode="light"], body{
+  --bg:#F7FAFD; --surface:#FFFFFF; --surface-2:#E8F0FA; --tile:#F7FAFD;
+  --ink:#16243F; --ink-mid:#44546F; --ink-soft:#6B7A93; --line:#C9D6E8;
+  --navy:#16243F; --navy-2:#1E3154;
+  --safe:#2E7D4F; --safe-bg:#E7F5EC;
+  --flag:#A15C00; --flag-bg:#FFF3E0;
+  --grid:rgba(45,91,154,.06);
+}
+body[data-mode="dark"]{
+  --bg:#0F1A2C; --surface:#15233A; --surface-2:#1C3150; --tile:#122036;
+  --ink:#E6EEF9; --ink-mid:#B8C6DB; --ink-soft:#8C9BB2; --line:#2F4466;
+  --navy:#0B1424; --navy-2:#0F1A2C;
+  --safe:#81C995; --safe-bg:#1B3326;
+  --flag:#FFB74D; --flag-bg:#3A2C17;
+  --grid:rgba(140,180,230,.06);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:24px 24px;
+  font-family:"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased;
+  transition:background .25s,color .25s;
+}
+h1,h2,h3,h4{margin:0}
+.mono{font-family:ui-monospace,"SFMono-Regular","Cascadia Mono","Roboto Mono",Consolas,monospace}
+::selection{background:rgba(var(--accent-rgb),.35)}
+button{font-family:inherit}
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+
+.topbar{
+  background:var(--navy); color:#fff; border-bottom:3px solid var(--accent);
+  padding:12px 18px; display:flex; align-items:center; justify-content:space-between;
+  position:sticky; top:0; z-index:20;
+}
+.topbar-left{display:flex; align-items:center; gap:10px}
+.topbar-logo{width:32px;height:32px;border-radius:6px;border:1.5px solid var(--accent);display:flex;align-items:center;justify-content:center;flex:none}
+.topbar-logo svg{width:18px;height:18px}
+.topbar-name{font-weight:700; font-size:16px; letter-spacing:-.2px}
+.topbar-name span{color:#F0ABFC}
+.topbar-sub{font-size:11px; color:rgba(255,255,255,.65); font-weight:500; letter-spacing:.06em; text-transform:uppercase}
+.topbar-tools{display:flex; gap:6px}
+.tool-btn{background:rgba(255,255,255,.09); border:1px solid rgba(255,255,255,.2); color:#fff; border-radius:6px; padding:7px 10px; font-size:13px; cursor:pointer; font-weight:600; display:flex; align-items:center; gap:5px}
+.tool-btn:hover{background:rgba(255,255,255,.17)}
+
+.progress-wrap{position:sticky; top:59px; z-index:19; background:var(--bg); padding:10px 18px 8px; border-bottom:1px solid var(--line)}
+.progress-track{height:6px; background:var(--surface-2); border-radius:99px; overflow:hidden; max-width:640px; margin:0 auto}
+.progress-fill{height:100%; background:linear-gradient(90deg,var(--accent),var(--accent-dark)); border-radius:99px; transition:width .35s ease; width:0%}
+.progress-label{max-width:640px; margin:6px auto 0; font-size:12px; color:var(--ink-soft); font-weight:600; display:flex; justify-content:space-between}
+
+main{max-width:640px; margin:0 auto; padding:28px 20px 90px}
+.screen{display:none; animation:fade .35s ease}
+.screen.active{display:block}
+@keyframes fade{from{opacity:0; transform:translateY(6px)} to{opacity:1; transform:translateY(0)}}
+
+.hook-badge{display:inline-flex; align-items:center; gap:6px; background:var(--surface); border:1px solid var(--line); color:var(--accent-dark); font-weight:700; font-size:12.5px; padding:5px 12px; border-radius:99px; margin-bottom:18px}
+body[data-mode="dark"] .hook-badge{color:#8CB4E6}
+.hook h1{font-size:clamp(1.7rem,6vw,2.3rem); line-height:1.15; margin-bottom:14px}
+.hook h1 em{font-style:normal; color:var(--accent)}
+.hook p.lede{font-size:1.05rem; color:var(--ink-mid); margin-bottom:22px}
+.hook-facts{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:26px}
+.hook-fact{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:14px 10px; text-align:center}
+.hook-fact .n{font-size:1.4rem; font-weight:700; color:var(--accent)}
+.hook-fact .t{font-size:11.5px; color:var(--ink-soft); font-weight:600; margin-top:2px}
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  border-radius:10px; padding:15px 22px; font-size:16px; font-weight:700; cursor:pointer;
+  border:none; width:100%; text-align:center; text-decoration:none;
+}
+.btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent-dark)); color:#fff; box-shadow:0 4px 14px rgba(var(--accent-rgb),.3)}
+.btn-primary:hover{filter:brightness(1.07)}
+.btn-ghost{background:var(--surface); color:var(--ink); border:1.5px solid var(--line)}
+.btn-ghost:hover{border-color:var(--accent)}
+.hint-row{display:flex; align-items:center; gap:8px; margin-top:14px; font-size:13px; color:var(--ink-soft); justify-content:center; text-align:center}
+
+.choose-card{background:var(--surface); border:1.5px solid var(--line); border-radius:12px; padding:18px 18px; margin-bottom:12px; cursor:pointer; transition:border-color .15s}
+.choose-card:hover{border-color:var(--accent)}
+.choose-card .cc-label{font-size:1.1rem; font-weight:700; margin-bottom:3px}
+.choose-card .cc-range{font-size:13px; color:var(--ink-soft); font-weight:600}
+
+.zone-chip{display:inline-flex; align-items:center; gap:6px; background:var(--surface); border:1px solid var(--line); color:var(--ink-mid); font-weight:700; font-size:11.5px; text-transform:uppercase; letter-spacing:.06em; padding:5px 11px; border-radius:99px; margin-bottom:16px}
+.zone-chip .dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+
+.check-card{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:24px 22px; box-shadow:0 2px 12px rgba(22,36,63,.06)}
+.check-card .verb{font-size:12.5px; font-weight:700; color:var(--accent); text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px}
+.check-card h2{font-size:1.35rem; line-height:1.3; margin-bottom:10px}
+.check-card .prompt{font-size:1rem; color:var(--ink-mid); margin-bottom:20px}
+.check-card .prompt strong{color:var(--ink)}
+.opts{display:flex; flex-direction:column; gap:10px; margin-bottom:4px}
+.opt{
+  display:flex; align-items:center; gap:12px; background:var(--tile); border:1.5px solid var(--line);
+  border-radius:10px; padding:14px 16px; cursor:pointer; font-size:15px; font-weight:600; color:var(--ink);
+  transition:border-color .15s, background .15s;
+}
+.opt:hover{border-color:var(--accent)}
+.opt .ic{width:22px;height:22px;border-radius:50%;border:2px solid var(--line); flex:none; display:flex;align-items:center;justify-content:center; font-size:13px; font-weight:800; color:transparent}
+.opt.selected{border-color:var(--accent-dark)}
+.opt.selected.safe{background:var(--safe-bg); border-color:var(--safe)}
+.opt.selected.safe .ic{border-color:var(--safe); color:var(--safe)}
+.opt.selected.flag{background:var(--flag-bg); border-color:var(--flag)}
+.opt.selected.flag .ic{border-color:var(--flag); color:var(--flag)}
+.change-hint{font-size:12.5px; color:var(--ink-soft); margin:10px 0 0}
+
+.reveal{margin-top:18px; border-radius:10px; padding:16px 18px; border-left:4px solid var(--accent-dark); background:var(--surface-2); display:none}
+.reveal.show{display:block; animation:fade .3s ease}
+.reveal .rk{font-size:11.5px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--accent-dark); margin-bottom:6px}
+.reveal.good{border-left-color:var(--safe); background:var(--safe-bg)}
+.reveal.good .rk{color:var(--safe)}
+.reveal.bad{border-left-color:var(--flag); background:var(--flag-bg)}
+.reveal.bad .rk{color:var(--flag)}
+.reveal p{margin:0 0 8px; font-size:14.5px; color:var(--ink-mid)}
+.reveal p:last-child{margin-bottom:0}
+.reveal .src{font-size:12.5px; color:var(--ink-soft); font-style:italic}
+
+.nav-row{display:flex; gap:10px; margin-top:22px}
+.nav-row .btn{flex:1}
+.nav-back{background:transparent; color:var(--ink-soft); border:none; font-size:13px; font-weight:600; cursor:pointer; padding:8px; margin-top:10px; width:100%; text-align:center}
+
+.result-head{text-align:center; margin-bottom:24px}
+.result-head .kicker{font-size:12.5px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-soft)}
+.result-head h1{font-size:1.8rem; margin:8px 0 4px}
+.result-stats{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:22px 0 26px}
+.rstat{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:16px 8px; text-align:center}
+.rstat .n{font-size:1.9rem; font-weight:700}
+.rstat.total .n{color:var(--ink)}
+.rstat.safe .n{color:var(--safe)}
+.rstat.flag .n{color:var(--flag)}
+.rstat .t{font-size:11.5px; color:var(--ink-soft); font-weight:600; margin-top:2px}
+
+.zone-bars{display:flex; flex-direction:column; gap:10px; margin-bottom:26px}
+.zbar-row{display:flex; align-items:center; gap:10px}
+.zbar-label{width:132px; flex:none; font-size:12.5px; font-weight:600; color:var(--ink-mid); overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.zbar-track{flex:1; height:9px; background:var(--surface-2); border-radius:99px; overflow:hidden}
+.zbar-fill{height:100%; border-radius:99px; background:var(--safe)}
+.zbar-fill.partial{background:var(--flag)}
+.zbar-count{width:38px; flex:none; text-align:right; font-size:12.5px; font-weight:700; color:var(--ink-soft)}
+
+.section-h{font-size:12.5px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-soft); margin:26px 0 12px}
+.finding{display:flex; gap:12px; padding:13px 0; border-bottom:1px solid var(--line)}
+.finding:last-child{border-bottom:none}
+.finding .fic{width:26px;height:26px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800}
+.finding.flag .fic{background:var(--flag-bg); color:var(--flag)}
+.finding.safe .fic{background:var(--safe-bg); color:var(--safe)}
+.finding .ft{font-weight:700; font-size:14.5px; margin-bottom:2px}
+.finding .fd{font-size:13.5px; color:var(--ink-soft); line-height:1.5}
+
+.quickwin{background:var(--surface); border:1.5px solid var(--accent); border-radius:14px; padding:20px; margin:8px 0 26px}
+.quickwin .qk{display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--accent); margin-bottom:8px}
+.quickwin h3{font-size:1.1rem; margin-bottom:8px}
+.quickwin p{font-size:14.5px; color:var(--ink-mid); margin:0}
+
+.bridge{background:var(--navy); border-top:3px solid var(--accent); color:#fff; border-radius:14px; padding:26px 22px; margin:10px 0 20px}
+.bridge .bk{font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:#F0ABFC}
+.bridge h3{font-size:1.4rem; margin:8px 0 12px; line-height:1.3}
+.bridge p{font-size:14.5px; color:rgba(255,255,255,.82); margin:0 0 14px}
+.bridge .still{background:rgba(255,255,255,.07); border-radius:10px; padding:14px 16px; margin:14px 0}
+.bridge .still h4{font-size:12.5px; text-transform:uppercase; letter-spacing:.04em; color:rgba(255,255,255,.6); margin-bottom:8px}
+.bridge .still ul{margin:0; padding-left:18px; font-size:13.5px; color:rgba(255,255,255,.85)}
+.bridge .still li{margin-bottom:5px}
+.bridge .btn-primary{margin-top:6px}
+.bridge .note{font-size:11.5px; color:rgba(255,255,255,.5); margin-top:10px; text-align:center}
+
+.restart-row{text-align:center; margin-top:8px}
+.restart-row button{background:none; border:none; color:var(--ink-soft); font-size:13px; font-weight:600; text-decoration:underline; cursor:pointer}
+
+.disclaimer{font-size:12px; color:var(--ink-soft); text-align:center; margin-top:30px; padding-top:18px; border-top:1px solid var(--line); line-height:1.6}
+</style>
+</head>
+<body data-mode="light">
+
+<div class="topbar">
+  <div class="topbar-left">
+    <span class="topbar-logo"><svg viewBox="0 0 24 24" fill="none" stroke="#F0ABFC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 14a4 4 0 0 1 .5-8 5 5 0 0 1 9.6 1.5A3.5 3.5 0 0 1 17 14H7z"/><path d="M12 14l-2 4h3l-2 4"/></svg></span>
+    <div>
+      <div class="topbar-name">Beneath the <span>Surface</span></div>
+      <div class="topbar-sub">by The Snag Tag &middot; Post-Storm Check</div>
+    </div>
+  </div>
+  <div class="topbar-tools">
+    <button class="tool-btn" id="modeToggle" type="button" aria-label="Toggle dark mode">🌙</button>
+  </div>
+</div>
+
+<div class="progress-wrap" id="progressWrap" style="display:none">
+  <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+  <div class="progress-label"><span id="progressText">Check 1</span><span id="progressPct">0%</span></div>
+</div>
+
+<main>
+
+  <section class="screen active" id="screen-hook">
+    <div class="hook">
+      <span class="hook-badge">⛈️ For home buyers and home owners</span>
+      <h1>Safe first. <em>Then record everything.</em></h1>
+      <p class="lede">Real checks, pulled from The Snag Tag's Beneath the Surface Post-Storm Check tool. The safe order after a storm, the evidence your insurer needs, and drying before mould. No signup, no scare tactics.</p>
+      <div class="hook-facts">
+        <div class="hook-fact"><div class="n">8</div><div class="t">real checks</div></div>
+        <div class="hook-fact"><div class="n">~5</div><div class="t">minutes</div></div>
+        <div class="hook-fact"><div class="n">Free</div><div class="t">to start</div></div>
+      </div>
+      <button class="btn btn-primary" id="startBtn" type="button">Start the Check &rarr;</button>
+      <div class="hint-row">Free. No account. Your answers stay on this device.</div>
+    </div>
+  </section>
+
+  <section class="screen" id="screen-choose">
+    <div class="hook">
+      <h1 style="font-size:1.6rem">Which fits you right now?</h1>
+      <p class="lede" style="margin-bottom:20px">This decides which real checks you'll see today. Pick the one that fits.</p>
+      <div class="choose-card" data-key="buyer"><div class="cc-label">I'm viewing or buying a home</div><div class="cc-range">Pre-Purchase checks</div></div>
+      <div class="choose-card" data-key="owner"><div class="cc-label">I live in or look after a home</div><div class="cc-range">Maintenance checks for owners, tenants and landlords</div></div>
+    </div>
+  </section>
+
+  <section class="screen" id="screen-check">
+    <span class="zone-chip"><span class="dot"></span><span id="chkZone">Zone</span></span>
+    <div class="check-card">
+      <div class="verb" id="chkVerb">Check</div>
+      <h2 id="chkTitle"></h2>
+      <p class="prompt" id="chkPrompt"></p>
+      <div class="opts" id="chkOpts"></div>
+      <p class="change-hint">Pick either one. You can change your answer any time before you move on.</p>
+      <div class="reveal" id="chkReveal">
+        <div class="rk" id="revealKicker">Here's what actually matters</div>
+        <p id="revealWhy"></p>
+        <p id="revealHow"></p>
+        <p class="src" id="revealSrc"></p>
+      </div>
+      <div class="nav-row" id="chkNavRow" style="display:none">
+        <button class="btn btn-primary" id="chkNextBtn" type="button">Next check &rarr;</button>
+      </div>
+    </div>
+    <button class="nav-back" id="chkBackBtn" type="button">&larr; back</button>
+    <button class="nav-back" id="chkChooseBtn" type="button" style="opacity:.65">Choose a different check</button>
+  </section>
+
+  <section class="screen" id="screen-result">
+    <div class="result-head">
+      <div class="kicker">Your Post-Storm Check</div>
+      <h1 id="resultHeadline">Here's what you found</h1>
+    </div>
+
+    <div class="result-stats">
+      <div class="rstat total"><div class="n" id="statTotal">0</div><div class="t">checked today</div></div>
+      <div class="rstat safe"><div class="n" id="statSafe">0</div><div class="t">already sorted</div></div>
+      <div class="rstat flag"><div class="n" id="statFlag">0</div><div class="t">need attention</div></div>
+    </div>
+
+    <div class="zone-bars" id="zoneBars"></div>
+
+    <div class="section-h">What to check today</div>
+    <div id="findingsFlag"></div>
+
+    <div class="section-h">Already sorted</div>
+    <div id="findingsSafe"></div>
+
+    <div class="quickwin" id="quickwin">
+      <div class="qk">&#9889; Quick win - do this now, free</div>
+      <h3 id="qwTitle"></h3>
+      <p id="qwBody"></p>
+    </div>
+
+    <div class="bridge">
+      <div class="bk">The complete system</div>
+      <h3 id="bridgeHeadline">You found the gaps. Here's what closes them.</h3>
+      <p id="bridgeBody"></p>
+      <div class="still" id="bridgeStill">
+        <h4>Today's check opened part of the picture. Here's what's still closed:</h4>
+        <ul id="bridgeStillList"></ul>
+      </div>
+      <a class="btn btn-primary" id="proBtn" href="#" target="_blank" rel="noopener">Get the complete tool &rarr;</a>
+      <div class="note">One-time purchase. Works offline, on any device, no subscription.</div>
+      <button class="btn btn-ghost" id="saveResultsBtn" type="button" style="margin-top:12px;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.25);color:#fff">Not ready yet? Save my results instead &rarr;</button>
+      <div class="note">Downloads a copy of exactly what you found today, free, no email needed. Nothing here disappears, but nothing reminds you either, so keep it somewhere you'll see it.</div>
+    </div>
+
+    <div class="restart-row"><button id="restartBtn" type="button">&#8634; Start the check again</button></div>
+
+    <div class="disclaimer">This is educational general guidance from The Snag Tag, a NEBOSH &amp; OSHA trained HSE professional. It does not decide whether a building is safe to enter or what your insurance covers. Do not enter a damaged building until local authorities say it is safe, stay away from fallen power lines, and follow your local emergency services first. Rules differ between countries.</div>
+  </section>
+
+</main>
+
+<script>
+/* ============================================================
+   SET YOUR GUMROAD LINK HERE (one place, used everywhere)
+   ============================================================ */
+const GUMROAD_URL = "https://snagtag.gumroad.com/l/BTS_PostStorm_PRO";
+
+const PRODUCTS = {
+  "buyer": {
+    "label": "Pre-Purchase",
+    "ageRange": "Viewing or buying a home",
+    "accent": "#86198F",
+    "accentDark": "#2D5B9A",
+    "checks": [
+      {
+        "zone": "History",
+        "verb": "Ask",
+        "title": "Have you asked whether the home has had storm or flood damage?",
+        "prompt": "Past damage and repairs are <strong>worth knowing</strong> before you buy.",
+        "yes": "Yes, I've asked",
+        "no": "Not yet",
+        "why": "Storm and water damage can leave hidden problems, and knowing what was repaired, and by whom, helps you judge the home.",
+        "how": "Ask the seller about any storm, flood or wind damage, when it happened, what was repaired, and whether insurance claims were made. Ask for the invoices.",
+        "standard": "Asking for damage history and repair invoices: professional practice. Disclosure rules differ between countries.",
+        "tip": "Ask for the repair invoices by email so you have them in writing.",
+        "src": "Source: Beneath the Surface - Post-Storm Check, Master Check (Storm damage history) · Professional practice"
+      },
+      {
+        "zone": "Ceilings",
+        "verb": "Look up",
+        "title": "Any water stains on ceilings or the tops of walls?",
+        "prompt": "Stains can be the only <strong>visible trace</strong> of past storm damage.",
+        "yes": "No, none seen",
+        "no": "Yes, or didn't look",
+        "why": "Water that came in through a damaged roof or window often leaves stains on ceilings and upper walls.",
+        "how": "Look at every ceiling, especially top-floor rooms and below bathrooms. Note stains, bulges or fresh paint in one patch only, and ask about them.",
+        "standard": "Red Cross: after a disaster, check ceilings for moisture damage and avoid sagging ceilings and floors.",
+        "tip": "Use your phone torch at an angle across the ceiling. It shows bulges and patches clearly.",
+        "src": "Source: Beneath the Surface - Post-Storm Check, Storm Sweep (Ceilings) · Red Cross Structure"
+      },
+      {
+        "zone": "Roof",
+        "verb": "Look from the ground",
+        "title": "Did you look at the roof from the ground for missing or lifted roofing?",
+        "prompt": "You don't need a ladder to <strong>spot the obvious</strong>.",
+        "yes": "Yes, all sides",
+        "no": "Not yet",
+        "why": "Missing or lifted tiles or sheets let water in during the next storm.",
+        "how": "Walk around the outside and look at every side of the roof from the ground. Note missing, cracked or lifted tiles or sheets, and lifted flashing. Never climb up.",
+        "standard": "UK HSE: treat all roofs as fragile. Red Cross: check outside first for damage. Viewing from the ground: professional practice.",
+        "tip": "Stand across the street for a better angle on the roof line.",
+        "src": "Source: Beneath the Surface - Post-Storm Check, Storm Sweep (Roof from the ground) · UK HSE Roof work · Red Cross"
+      },
+      {
+        "zone": "Trees",
+        "verb": "Look",
+        "title": "Are there large trees or branches close to the house or power lines?",
+        "prompt": "Trees near a house are worth a look <strong>before</strong> the next storm.",
+        "yes": "No, or they look sound",
+        "no": "Yes, close by",
+        "why": "Large branches close to a house or to power lines can cause damage when they fall.",
+        "how": "Note trees that overhang the roof, lean towards the house or touch power lines. Ask whether an arborist has checked them.",
+        "standard": "Checking trees near the house and power lines: professional practice. Leave cutting to an arborist and the electricity company.",
+        "tip": "Photograph the trees from the garden and the street. It's easy to compare later.",
+        "src": "Source: Beneath the Surface - Post-Storm Check, Master Check (Damaged trees) · Professional practice"
+      },
+      {
+        "zone": "Electrics",
+        "verb": "Ask",
+        "title": "Were the electrics checked by an electrician after any water came in?",
+        "prompt": "Wet electrics need <strong>professional sign-off</strong>.",
+        "yes": "Yes, with a record",
+        "no": "No, or not sure",
+        "why": "Water inside the switchboard, or any sign of arcing or overheating, needs a registered electrician to check it.",
+        "how": "If the home has had water inside, ask whether a registered electrician checked the wiring and switchboard afterwards, and ask to see the record.",
+        "standard": "Electrical Safety First (UK): seek a registered electrician if there is water inside the consumer unit or signs of arcing or overheating; avoid mains appliances until advised it is safe.",
+        "tip": "Ask for the electrician's name and certificate if there was water damage.",
+        "src": "Source: Beneath the Surface - Post-Storm Check, Master Check (Wet electrics) · Electrical Safety First"
+      },
+      {
+        "zone": "Drying",
+        "verb": "Ask",
+        "title": "Were wet areas dried quickly and checked for mould?",
+        "prompt": "Drying within <strong>24-48 hours</strong> helps prevent mould.",
+        "yes": "Yes, dried and checked",
+        "no": "No, or not sure",
+        "why": "Materials that stay wet for more than a day or two can grow mould behind walls and under floors.",
+        "how": "Ask how the home was dried after any water damage, and whether it was checked for mould. Look and sniff for musty areas.",
+        "standard": "US EPA: dry water-damaged areas and items within 24-48 hours to prevent mould growth.",
+        "tip": "Open wardrobes and cupboards on outside walls. Musty smells show up there first.",
+        "src": "Source: Beneath the Surface - Post-Storm Check, Drying Tracker · EPA Mold & Moisture"
+      },
+      {
+        "zone": "Drainage",
+        "verb": "Look",
+        "title": "Do gutters and drains look clear and properly attached?",
+        "prompt": "Blocked or loose gutters send storm water <strong>into walls</strong>.",
+        "yes": "Yes, they look fine",
+        "no": "Blocked, loose, or not checked",
+        "why": "Gutters that overflow or pull away during storms can push water into walls and foundations.",
+        "how": "From the ground, look for sagging, gaps, plants growing in gutters, and staining on walls below. Check downpipes discharge away from the walls.",
+        "standard": "Checking gutters and drains from the ground: professional practice.",
+        "tip": "Look for green or dark streaks on walls under the gutters. They show where water overflows.",
+        "src": "Source: Beneath the Surface - Post-Storm Check, Storm Sweep (Gutters) · Professional practice"
+      },
+      {
+        "zone": "Insurance",
+        "verb": "Ask",
+        "title": "Have you checked what storm and flood cover is available for this address?",
+        "prompt": "Check cover <strong>before</strong> you commit.",
+        "yes": "Yes, I've checked",
+        "no": "Not yet",
+        "why": "Storm and flood cover, and its cost, affect the real cost of owning the home.",
+        "how": "Ask an insurer or broker for a quote for this address before you commit, and ask what storm and flood events are covered.",
+        "standard": "Checking insurance cover before buying: professional practice. Cover and rules differ by country and insurer.",
+        "tip": "Ask the seller who insures the home now. It's a useful starting point.",
+        "src": "Source: Beneath the Surface - Post-Storm Check, Master Check (Storm damage history) · Professional practice"
+      }
+    ]
+  },
+  "owner": {
+    "label": "Maintenance",
+    "ageRange": "Living in or looking after a home",
+    "accent": "#86198F",
+    "accentDark": "#2D5B9A",
+    "checks": [
+      {
+        "zone": "Safety",
+        "verb": "Think back",
+        "title": "After the last storm, did you check outside before going in?",
+        "prompt": "Outside first shows <strong>dangers you can't see</strong> from inside.",
+        "yes": "Yes, outside first",
+        "no": "No, or not sure",
+        "why": "Loose power lines, damaged gas lines and structural damage are easiest to spot from outside, before you enter.",
+        "how": "Walk around the outside first: power lines, gas meter, walls and supports, roof from the ground. Only go in if it looks safe, and leave if you hear shifting or unusual noises.",
+        "standard": "Red Cross: check outside for loose power lines, damaged gas lines, foundation cracks and missing supports. CDC: do not enter a damaged building until local authorities say it is safe.",
+        "tip": "Keep this checklist on your phone so it's ready for the next storm.",
+        "src": "Source: Beneath the Surface - Post-Storm Check, Storm Sweep (Outside first) · Red Cross · CDC"
+      },
+      {
+        "zone": "Evidence",
+        "verb": "Think back",
+        "title": "Did you photograph the damage before cleaning up?",
+        "prompt": "Photos first, <strong>then</strong> clean and protect.",
+        "yes": "Yes, photos first",
+        "no": "No, or only some",
+        "why": "Insurers need to see what was damaged. Once it's cleaned or thrown away, the evidence is gone.",
+        "how": "Photograph or video every damaged area and item, including a wide shot and a close-up. Then take reasonable steps to prevent further damage.",
+        "standard": "Insurance Information Institute: photograph or videotape the damage, then take reasonable steps to protect your property from further damage. London Fire Brigade: photograph damaged items before removing them.",
+        "tip": "Say the room name out loud at the start of each video. It keeps the footage organised.",
+        "src": "Source: Beneath the Surface - Post-Storm Check, Damage & Photo Log · Insurance Information Institute · London Fire Brigade"
+      },
+      {
+        "zone": "Power lines",
+        "verb": "Think back",
+        "title": "Did you stay well away from any fallen power lines and report them?",
+        "prompt": "Fallen lines can <strong>still be live</strong>.",
+        "yes": "Yes, or none fell",
+        "no": "No, or not sure",
+        "why": "A fallen or low power line can still carry electricity.",
+        "how": "Stay well away from fallen, low or damaged lines, keep others away, and report them to the electricity company or emergency services.",
+        "standard": "CDC: stay clear of fallen power lines and call the electric company to report them. Queensland Electrical Safety Office: report fallen, low or damaged powerlines and stay away from them.",
+        "tip": "Save your electricity company's fault number in your phone now.",
+        "src": "Source: Beneath the Surface - Post-Storm Check, Master Check (Fallen power lines) · CDC · Queensland Electrical Safety Office"
+      },
+      {
+        "zone": "Drying",
+        "verb": "Go check",
+        "title": "Are wet areas drying within 24-48 hours?",
+        "prompt": "Speed matters: <strong>24-48 hours</strong> is the target.",
+        "yes": "Yes, drying well",
+        "no": "No, still wet",
+        "why": "Materials that stay wet longer than a day or two can start to grow mould.",
+        "how": "Open windows when it's safe, move wet items out, lift wet rugs and record each wet area and the date. Drying a flooded home can take weeks, so ask about specialist drying.",
+        "standard": "US EPA: dry water-damaged areas and items within 24-48 hours to prevent mould growth. London Fire Brigade: drying out can take weeks or months.",
+        "tip": "Write the date on a piece of tape near each wet area. You'll know exactly how long it's been.",
+        "src": "Source: Beneath the Surface - Post-Storm Check, Drying Tracker · EPA Mold & Moisture · London Fire Brigade"
+      },
+      {
+        "zone": "Electrics",
+        "verb": "Think back",
+        "title": "If electrics got wet, did you wait for an electrician before switching back on?",
+        "prompt": "Wet electrics need <strong>a professional check</strong> first.",
+        "yes": "Yes, or they stayed dry",
+        "no": "No, or not sure",
+        "why": "Water in sockets, wiring or the switchboard can make them dangerous even after they look dry.",
+        "how": "Switch off at the consumer unit only if it's safe, keep away from exposed wiring, and don't use mains appliances until a registered electrician says it's safe.",
+        "standard": "Electrical Safety First (UK): switch off at the consumer unit only if safe; avoid mains appliances until a registered electrician says it is safe. CDC: wait for an electrician to check wet devices.",
+        "tip": "Keep a torch and spare batteries somewhere easy to find in the dark.",
+        "src": "Source: Beneath the Surface - Post-Storm Check, Master Check (Wet electrics) · Electrical Safety First · CDC"
+      },
+      {
+        "zone": "Generator",
+        "verb": "Think back",
+        "title": "If you used a generator, was it outside and at least 6 m (20 ft) from openings?",
+        "prompt": "Generators make <strong>carbon monoxide</strong> you can't see or smell.",
+        "yes": "Yes, or no generator",
+        "no": "No, or not sure",
+        "why": "Generator exhaust contains carbon monoxide, which can build up indoors.",
+        "how": "Run generators outside only, at least 6 m (20 ft) from windows, doors and vents. Never connect one to the house through a power point: a changeover switch must be installed by a licensed electrician.",
+        "standard": "CDC: keep generators outside and at least 20 feet from any window, door or vent. Queensland Electrical Safety Office: never connect a generator through a power point (back-feeding).",
+        "tip": "Pace out 6 m (20 ft) before the next storm and mark the spot.",
+        "src": "Source: Beneath the Surface - Post-Storm Check, Master Check (Generator used safely) · CDC · Queensland Electrical Safety Office"
+      },
+      {
+        "zone": "Evidence",
+        "verb": "Think back",
+        "title": "Are you keeping receipts for temporary repairs and extra costs?",
+        "prompt": "Receipts may be <strong>claimable later</strong>.",
+        "yes": "Yes, all of them",
+        "no": "Not all",
+        "why": "Temporary repairs and extra living costs may be reimbursed, but only if you can show what you spent.",
+        "how": "Keep every receipt for tarps, boarding, drying equipment, cleaning and extra accommodation. Keep damaged items for the adjuster where you can.",
+        "standard": "Insurance Information Institute: keep all receipts for temporary repairs and additional living expenses, and keep damaged items until the adjuster inspects them.",
+        "tip": "Photograph each receipt as you get it, so you have a backup if the paper gets lost.",
+        "src": "Source: Beneath the Surface - Post-Storm Check, Damage & Photo Log · Insurance Information Institute"
+      },
+      {
+        "zone": "Cleanup",
+        "verb": "Think back",
+        "title": "Did you wear boots and gloves for the cleanup?",
+        "prompt": "Floodwater can carry <strong>germs and chemicals</strong>.",
+        "yes": "Yes, every time",
+        "no": "Not always",
+        "why": "Floodwater can contain sewage, germs and chemicals.",
+        "how": "Wear rubber boots, gloves, protective clothing and goggles or a face mask. Wash your hands with soap and water after contact with floodwater.",
+        "standard": "London Fire Brigade: rubber boots, gloves, protective clothing, goggles or a face mask. CDC: wash your hands with soap and water after contact with floodwater.",
+        "tip": "Keep a cleanup kit (boots, gloves, masks) in one box, ready for next time.",
+        "src": "Source: Beneath the Surface - Post-Storm Check, Master Check (Protective gear) · London Fire Brigade · CDC"
+      }
+    ]
+  }
+};
+const BRIDGE_STILL = {
+  "buyer": [
+    "<strong>The full 18-area Storm Sweep</strong>: power lines, gas, walls, roof, trees, gutters, glass, fences, floodwater, ceilings, floors, electrics, appliances, water, smells and roof space.",
+    "<strong>20 Master Checks</strong>, a damage and photo log, a drying tracker, questions for the seller and a printable report."
+  ],
+  "owner": [
+    "<strong>A Damage &amp; Photo Log</strong> that flags anything not photographed, plus a Drying Tracker that flags every area still wet after 48 hours.",
+    "<strong>20 Master Checks, an 18-area Storm Sweep</strong>, 3-photo evidence, 14 cited safe steps and a printable report for your insurer."
+  ]
+};
+const BEHAVIOUR_FIRST = {
+  "buyer": [0, 1, 4, 5],
+  "owner": [0, 1, 2, 4]
+};
+
+const STORE_KEY = 'snagtag-post-storm-check';
+let state = { idx:0, answers:[], started:false, product:null };
+let CHECKS = [];
+
+function loadState(){
+  try{
+    const raw = localStorage.getItem(STORE_KEY);
+    if(raw){ const s = JSON.parse(raw); if(s && Array.isArray(s.answers)) state = s; }
+  }catch(e){}
+  if(state.product && PRODUCTS[state.product]) CHECKS = PRODUCTS[state.product].checks;
+  else state.product = null;
+}
+function saveState(){
+  try{ localStorage.setItem(STORE_KEY, JSON.stringify(state)); }catch(e){}
+}
+
+function hexToRgbStr(hex){
+  hex = hex.replace('#','');
+  const r = parseInt(hex.substring(0,2),16), g = parseInt(hex.substring(2,4),16), b = parseInt(hex.substring(4,6),16);
+  return r+','+g+','+b;
+}
+function applyProductTheme(key){
+  const p = PRODUCTS[key];
+  document.documentElement.style.setProperty('--accent', p.accent);
+  document.documentElement.style.setProperty('--accent-dark', p.accentDark);
+  document.documentElement.style.setProperty('--accent-rgb', hexToRgbStr(p.accent));
+}
+
+function show(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.getElementById('progressWrap').style.display = (id==='screen-check') ? 'block' : 'none';
+  window.scrollTo({top:0, behavior:'instant' in window ? 'instant' : 'auto'});
+}
+
+document.querySelectorAll('.choose-card').forEach(card=>{
+  card.addEventListener('click', ()=>{
+    const key = card.getAttribute('data-key');
+    state = { idx:0, answers:[], started:true, product:key };
+    CHECKS = PRODUCTS[key].checks;
+    applyProductTheme(key);
+    saveState();
+    renderCheck(); show('screen-check');
+  });
+});
+
+function renderCheck(){
+  const i = state.idx;
+  const c = CHECKS[i];
+  document.getElementById('chkZone').textContent = c.zone;
+  document.getElementById('chkVerb').textContent = c.verb;
+  document.getElementById('chkTitle').textContent = c.title;
+  document.getElementById('chkPrompt').innerHTML = c.prompt;
+  document.getElementById('progressText').textContent = 'Check ' + (i+1) + ' of ' + CHECKS.length;
+  document.getElementById('progressPct').textContent = Math.round(((i)/CHECKS.length)*100) + '%';
+  document.getElementById('progressFill').style.width = ((i)/CHECKS.length*100) + '%';
+
+  const opts = document.getElementById('chkOpts');
+  opts.innerHTML = '';
+  const answered = state.answers[i] !== undefined && state.answers[i] !== null;
+
+  [['yes', c.yes, true], ['no', c.no, false]].forEach(([key,label,isSafe])=>{
+    const div = document.createElement('div');
+    div.className = 'opt';
+    div.setAttribute('role','button');
+    div.setAttribute('tabindex','0');
+    const isSelected = answered && state.answers[i] === isSafe;
+    div.innerHTML = '<span class="ic">'+(isSelected ? '✓' : '')+'</span><span>'+label+'</span>';
+    if(isSelected) div.classList.add('selected', isSafe ? 'safe':'flag');
+    const pick = ()=>{
+      state.answers[i] = isSafe;
+      saveState();
+      renderCheck();
+      applyReveal(c, isSafe);
+      document.getElementById('chkNavRow').style.display = 'flex';
+      document.getElementById('chkNextBtn').textContent = (i === CHECKS.length-1) ? 'See my results →' : 'Next check →';
+    };
+    div.addEventListener('click', pick);
+    div.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); pick(); } });
+    opts.appendChild(div);
+  });
+
+  const rv = document.getElementById('chkReveal');
+  if(answered){
+    applyReveal(c, state.answers[i]);
+    document.getElementById('chkNavRow').style.display = 'flex';
+    document.getElementById('chkNextBtn').textContent = (i === CHECKS.length-1) ? 'See my results →' : 'Next check →';
+  } else {
+    rv.classList.remove('show');
+    document.getElementById('chkNavRow').style.display = 'none';
+  }
+  document.getElementById('chkBackBtn').style.visibility = (i===0) ? 'hidden' : 'visible';
+}
+
+function applyReveal(c, isSafe){
+  const rv = document.getElementById('chkReveal');
+  rv.classList.add('show');
+  rv.classList.toggle('good', !!isSafe);
+  rv.classList.toggle('bad', !isSafe);
+  const kicker = document.getElementById('revealKicker');
+  const line1 = document.getElementById('revealWhy');
+  const line2 = document.getElementById('revealHow');
+  if(isSafe){
+    kicker.textContent = '✓ Good - that\'s sorted';
+    line1.textContent = 'That matches the guidance: ' + c.standard;
+    line2.textContent = c.tip;
+  } else {
+    kicker.textContent = '⚠ Worth fixing - here\'s why';
+    line1.textContent = c.why;
+    line2.textContent = c.how;
+  }
+  document.getElementById('revealSrc').textContent = c.src;
+}
+
+document.getElementById('chkNextBtn').addEventListener('click', ()=>{
+  if(state.idx < CHECKS.length-1){
+    state.idx++; saveState(); renderCheck(); show('screen-check');
+  } else {
+    document.getElementById('progressFill').style.width = '100%';
+    renderResult(); show('screen-result');
+  }
+});
+document.getElementById('chkBackBtn').addEventListener('click', ()=>{
+  if(state.idx>0){ state.idx--; saveState(); renderCheck(); show('screen-check'); }
+});
+document.getElementById('chkChooseBtn').addEventListener('click', ()=>{
+  state = { idx:0, answers:[], started:true, product:null };
+  saveState();
+  show('screen-choose');
+});
+
+document.getElementById('startBtn').addEventListener('click', ()=>{
+  state = { idx:0, answers:[], started:true, product:null }; saveState();
+  show('screen-choose');
+});
+document.getElementById('restartBtn').addEventListener('click', ()=>{
+  state = { idx:0, answers:[], started:true, product:null }; saveState();
+  show('screen-choose');
+});
+
+function escHtml(s){return String(s).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));}
+
+document.getElementById('saveResultsBtn').addEventListener('click', ()=>{
+  const p = PRODUCTS[state.product];
+  const safeItems = CHECKS.filter((c,i)=>state.answers[i]===true);
+  const flagItems = CHECKS.filter((c,i)=>state.answers[i]===false);
+  const dateStr = new Date().toLocaleDateString(undefined, {year:'numeric',month:'long',day:'numeric'});
+  const rowsFlag = flagItems.map(c=>'<div class="row flag"><strong>'+escHtml(c.title.replace(/\?$/,''))+'</strong><span>'+escHtml(c.how)+'</span><em>'+escHtml(c.src)+'</em></div>').join('') || '<p style="color:#6B7A93">Nothing flagged - every check today was already sorted.</p>';
+  const rowsSafe = safeItems.map(c=>'<div class="row safe"><strong>'+escHtml(c.title.replace(/\?$/,''))+'</strong><span>'+escHtml(c.tip)+'</span></div>').join('') || '<p style="color:#6B7A93">Nothing marked sorted yet.</p>';
+  const html = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>My Post-Storm Check - '+dateStr+'</title>'
+    + '<style>body{font-family:"Segoe UI",system-ui,-apple-system,sans-serif;background:#F7FAFD;color:#16243F;max-width:640px;margin:0 auto;padding:32px 20px;line-height:1.6}'
+    + 'h1{font-size:1.5rem;margin:0 0 4px}p.sub{color:#6B7A93;margin:0 0 26px;font-size:14px}'
+    + 'h2{font-size:1rem;text-transform:uppercase;letter-spacing:.06em;color:#6B7A93;margin:26px 0 10px}'
+    + '.row{border-left:4px solid '+p.accent+';background:#fff;border-radius:0 10px 10px 0;padding:12px 16px;margin-bottom:10px}'
+    + '.row.safe{border-left-color:#2E7D4F}.row.flag{border-left-color:#A15C00}'
+    + '.row strong{display:block;font-size:14.5px;margin-bottom:3px}.row span{font-size:13.5px;color:#44546F;display:block}.row em{font-size:12px;color:#6B7A93;display:block;margin-top:4px}'
+    + '.cta{display:inline-block;margin-top:22px;background:linear-gradient(135deg,'+p.accent+','+p.accentDark+');color:#fff;font-weight:700;padding:13px 20px;border-radius:10px;text-decoration:none}'
+    + 'footer{margin-top:30px;padding-top:16px;border-top:1px solid #C9D6E8;font-size:11.5px;color:#6B7A93}</style></head><body>'
+    + '<h1>My Post-Storm Check: ' + p.label + '</h1><p class="sub">Saved '+dateStr+' &middot; Beneath the Surface by The Snag Tag</p>'
+    + '<h2>Check today</h2>' + rowsFlag
+    + '<h2>Already sorted</h2>' + rowsSafe
+    + '<a class="cta" href="'+GUMROAD_URL+'" target="_blank" rel="noopener">Get the complete Post-Storm Check tool &rarr;</a>'
+    + '<footer>Educational general guidance from The Snag Tag, a NEBOSH &amp; OSHA trained HSE professional. Not a structural or insurance assessment. Saved locally to your device; nothing was sent anywhere.</footer>'
+    + '</body></html>';
+  const blob = new Blob([html], {type:'text/html'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'post-storm-check-' + state.product + '-results.html';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(()=>URL.revokeObjectURL(url), 2000);
+});
+
+function renderResult(){
+  const p = PRODUCTS[state.product];
+  const total = CHECKS.length;
+  const safeCount = state.answers.filter(a=>a===true).length;
+  const flagCount = state.answers.filter(a=>a===false).length;
+  document.getElementById('statTotal').textContent = total;
+  document.getElementById('statSafe').textContent = safeCount;
+  document.getElementById('statFlag').textContent = flagCount;
+
+  document.getElementById('resultHeadline').textContent =
+    flagCount === 0 ? total + ' for ' + total + ' - genuinely well done' :
+    flagCount <= 2 ? 'Close. A couple of things to look at' :
+    'You just found real gaps';
+
+  const zones = {};
+  CHECKS.forEach((c,i)=>{
+    if(!zones[c.zone]) zones[c.zone] = {safe:0,total:0};
+    zones[c.zone].total++;
+    if(state.answers[i]===true) zones[c.zone].safe++;
+  });
+  const zb = document.getElementById('zoneBars');
+  zb.innerHTML = '';
+  Object.keys(zones).forEach(z=>{
+    const d = zones[z];
+    const pct = Math.round((d.safe/d.total)*100);
+    const row = document.createElement('div');
+    row.className = 'zbar-row';
+    row.innerHTML = '<div class="zbar-label">'+z+'</div><div class="zbar-track"><div class="zbar-fill'+(pct<100?' partial':'')+'" style="width:'+pct+'%"></div></div><div class="zbar-count">'+d.safe+'/'+d.total+'</div>';
+    zb.appendChild(row);
+  });
+
+  const flagWrap = document.getElementById('findingsFlag');
+  const safeWrap = document.getElementById('findingsSafe');
+  flagWrap.innerHTML = ''; safeWrap.innerHTML = '';
+  if(flagCount===0){
+    flagWrap.innerHTML = '<p style="font-size:14px;color:var(--ink-soft)">Nothing flagged today - see the sorted list below.</p>';
+  }
+  CHECKS.forEach((c,i)=>{
+    const isSafe = state.answers[i]===true;
+    const div = document.createElement('div');
+    div.className = 'finding ' + (isSafe?'safe':'flag');
+    div.innerHTML = '<div class="fic">'+(isSafe?'✓':'!')+'</div><div><div class="ft">'+c.title.replace(/\?$/,'')+'</div><div class="fd">'+(isSafe? 'Sorted - keep it that way.' : c.how)+'</div></div>';
+    (isSafe ? safeWrap : flagWrap).appendChild(div);
+  });
+
+  const behaviourFirst = BEHAVIOUR_FIRST[state.product] || [];
+  let qwIndex = behaviourFirst.find(i => state.answers[i]===false);
+  if(qwIndex === undefined) qwIndex = CHECKS.findIndex((c,i)=>state.answers[i]===false);
+  if(qwIndex === undefined || qwIndex === -1) qwIndex = 1;
+  const qw = CHECKS[qwIndex];
+  document.getElementById('qwTitle').textContent = qw.title.replace(/\?$/,'');
+  document.getElementById('qwBody').textContent = qw.how;
+
+  const bridgeBody = flagCount === 0
+    ? 'You\'re sorted on all ' + total + ' of today\'s checks. The full Beneath the Surface Post-Storm Check tool goes much further: an 18-area storm sweep, a damage and photo log, a drying tracker, a findings register with photo evidence and a printable report.'
+    : 'Today\'s check found ' + flagCount + ' of the most commonly missed post-storm gaps. The full Beneath the Surface Post-Storm Check tool helps you record every damaged area, track drying, and keep the evidence your insurer needs.';
+  document.getElementById('bridgeBody').textContent = bridgeBody;
+
+  const stillItems = BRIDGE_STILL[state.product] || [];
+  document.getElementById('bridgeStillList').innerHTML = stillItems.map(li=>'<li>'+li+'</li>').join('');
+
+  document.getElementById('proBtn').href = GUMROAD_URL;
+  document.getElementById('proBtn').textContent = 'Get the Post-Storm Check tool →';
+}
+
+function applyMode(m){
+  document.body.setAttribute('data-mode', m);
+  document.getElementById('modeToggle').textContent = m==='dark' ? '☀️' : '🌙';
+  try{ localStorage.setItem(STORE_KEY+'-mode', m); }catch(e){}
+}
+document.getElementById('modeToggle').addEventListener('click', ()=>{
+  applyMode(document.body.getAttribute('data-mode')==='dark' ? 'light' : 'dark');
+});
+(function initMode(){
+  let m = 'light';
+  try{ m = localStorage.getItem(STORE_KEY+'-mode') || 'light'; }catch(e){}
+  applyMode(m);
+})();
+
+loadState();
+if(state.product) applyProductTheme(state.product);
+if(state.started && state.product && state.idx < CHECKS.length && !(state.answers.length===CHECKS.length && state.answers.every(a=>a!==undefined && a!==null))){
+  renderCheck(); show('screen-check');
+} else if(state.started && state.product && state.answers.length===CHECKS.length && state.answers.every(a=>a!==undefined && a!==null)){
+  renderResult(); show('screen-result');
+} else if(state.started && !state.product){
+  show('screen-choose');
+}
+</script>
+</body>
+</html>
