@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<title>The Post-Storm Check - Beneath the Surface by The Snag Tag</title>
+<title>When the Wind Drops Taster - Post-Storm Damage, Insurance Photo &amp; Drying Record | Beneath the Surface by The Snag Tag</title>
 <meta name="description" content="8 real post-storm checks for home buyers or owners: safe order, photos before cleanup, power lines, wet electrics, drying and receipts. Free, 5 minutes, no signup - from The Snag Tag.">
 <style>
 :root{
-  --accent:#86198F; --accent-dark:#2D5B9A; --accent-rgb:134,25,143;
+  --accent:#A65B3B; --accent-dark:#23324F; --accent-rgb:166,91,59;
 }
 body[data-mode="light"], body{
   --bg:#F7FAFD; --surface:#FFFFFF; --surface-2:#E8F0FA; --tile:#F7FAFD;
@@ -186,7 +186,7 @@ body[data-mode="dark"] .hook-badge{color:#8CB4E6}
     <span class="topbar-logo"><svg viewBox="0 0 24 24" fill="none" stroke="#F0ABFC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 14a4 4 0 0 1 .5-8 5 5 0 0 1 9.6 1.5A3.5 3.5 0 0 1 17 14H7z"/><path d="M12 14l-2 4h3l-2 4"/></svg></span>
     <div>
       <div class="topbar-name">Beneath the <span>Surface</span></div>
-      <div class="topbar-sub">by The Snag Tag &middot; Post-Storm Check</div>
+      <div class="topbar-sub">by The Snag Tag &middot; When the Wind Drops Taster</div>
     </div>
   </div>
   <div class="topbar-tools">
@@ -205,7 +205,7 @@ body[data-mode="dark"] .hook-badge{color:#8CB4E6}
     <div class="hook">
       <span class="hook-badge">⛈️ For home buyers and home owners</span>
       <h1>Safe first. <em>Then record everything.</em></h1>
-      <p class="lede">Real checks, pulled from The Snag Tag's Beneath the Surface Post-Storm Check tool. The safe order after a storm, the evidence your insurer needs, and drying before mould. No signup, no scare tactics.</p>
+      <p class="lede">Real points, pulled from When the Wind Drops, the Full Edition by The Snag Tag. The safe order after a storm, the evidence your insurer needs, and drying before mould. No signup, no scare tactics.</p>
       <div class="hook-facts">
         <div class="hook-fact"><div class="n">8</div><div class="t">real checks</div></div>
         <div class="hook-fact"><div class="n">~5</div><div class="t">minutes</div></div>
@@ -249,7 +249,7 @@ body[data-mode="dark"] .hook-badge{color:#8CB4E6}
 
   <section class="screen" id="screen-result">
     <div class="result-head">
-      <div class="kicker">Your Post-Storm Check</div>
+      <div class="kicker">Your When the Wind Drops Taster</div>
       <h1 id="resultHeadline">Here's what you found</h1>
     </div>
 
@@ -274,14 +274,14 @@ body[data-mode="dark"] .hook-badge{color:#8CB4E6}
     </div>
 
     <div class="bridge">
-      <div class="bk">The complete system</div>
+      <div class="bk">The Full Edition</div>
       <h3 id="bridgeHeadline">You found the gaps. Here's what closes them.</h3>
       <p id="bridgeBody"></p>
       <div class="still" id="bridgeStill">
         <h4>Today's check opened part of the picture. Here's what's still closed:</h4>
         <ul id="bridgeStillList"></ul>
       </div>
-      <a class="btn btn-primary" id="proBtn" href="#" target="_blank" rel="noopener">Get the complete tool &rarr;</a>
+      <a class="btn btn-primary" id="proBtn" href="#" target="_blank" rel="noopener">Open When the Wind Drops - Full Edition &rarr;</a>
       <div class="note">One-time purchase. Works offline, on any device, no subscription.</div>
       <button class="btn btn-ghost" id="saveResultsBtn" type="button" style="margin-top:12px;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.25);color:#fff">Not ready yet? Save my results instead &rarr;</button>
       <div class="note">Downloads a copy of exactly what you found today, free, no email needed. Nothing here disappears, but nothing reminds you either, so keep it somewhere you'll see it.</div>
@@ -304,8 +304,8 @@ const PRODUCTS = {
   "buyer": {
     "label": "Pre-Purchase",
     "ageRange": "Viewing or buying a home",
-    "accent": "#86198F",
-    "accentDark": "#2D5B9A",
+    "accent": "#A65B3B",
+    "accentDark": "#23324F",
     "checks": [
       {
         "zone": "History",
@@ -416,8 +416,8 @@ const PRODUCTS = {
   "owner": {
     "label": "Maintenance",
     "ageRange": "Living in or looking after a home",
-    "accent": "#86198F",
-    "accentDark": "#2D5B9A",
+    "accent": "#A65B3B",
+    "accentDark": "#23324F",
     "checks": [
       {
         "zone": "Safety",
@@ -529,11 +529,11 @@ const PRODUCTS = {
 const BRIDGE_STILL = {
   "buyer": [
     "<strong>The full 18-area Storm Sweep</strong>: power lines, gas, walls, roof, trees, gutters, glass, fences, floodwater, ceilings, floors, electrics, appliances, water, smells and roof space.",
-    "<strong>20 Master Checks</strong>, a damage and photo log, a drying tracker, questions for the seller and a printable report."
+    "<strong>20 Master Checks</strong>, a damage and photo log, a drying tracker, questions for the seller and a printable record."
   ],
   "owner": [
     "<strong>A Damage &amp; Photo Log</strong> that flags anything not photographed, plus a Drying Tracker that flags every area still wet after 48 hours.",
-    "<strong>20 Master Checks, an 18-area Storm Sweep</strong>, 3-photo evidence, 14 cited safe steps and a printable report for your insurer."
+    "<strong>20 Master Checks, an 18-area Storm Sweep</strong>, 3-photo evidence, 14 cited safe steps and a printable record for your insurer."
   ]
 };
 const BEHAVIOUR_FIRST = {
@@ -690,7 +690,7 @@ document.getElementById('saveResultsBtn').addEventListener('click', ()=>{
   const dateStr = new Date().toLocaleDateString(undefined, {year:'numeric',month:'long',day:'numeric'});
   const rowsFlag = flagItems.map(c=>'<div class="row flag"><strong>'+escHtml(c.title.replace(/\?$/,''))+'</strong><span>'+escHtml(c.how)+'</span><em>'+escHtml(c.src)+'</em></div>').join('') || '<p style="color:#6B7A93">Nothing flagged - every check today was already sorted.</p>';
   const rowsSafe = safeItems.map(c=>'<div class="row safe"><strong>'+escHtml(c.title.replace(/\?$/,''))+'</strong><span>'+escHtml(c.tip)+'</span></div>').join('') || '<p style="color:#6B7A93">Nothing marked sorted yet.</p>';
-  const html = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>My Post-Storm Check - '+dateStr+'</title>'
+  const html = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>My When the Wind Drops Taster - '+dateStr+'</title>'
     + '<style>body{font-family:"Segoe UI",system-ui,-apple-system,sans-serif;background:#F7FAFD;color:#16243F;max-width:640px;margin:0 auto;padding:32px 20px;line-height:1.6}'
     + 'h1{font-size:1.5rem;margin:0 0 4px}p.sub{color:#6B7A93;margin:0 0 26px;font-size:14px}'
     + 'h2{font-size:1rem;text-transform:uppercase;letter-spacing:.06em;color:#6B7A93;margin:26px 0 10px}'
@@ -699,7 +699,7 @@ document.getElementById('saveResultsBtn').addEventListener('click', ()=>{
     + '.row strong{display:block;font-size:14.5px;margin-bottom:3px}.row span{font-size:13.5px;color:#44546F;display:block}.row em{font-size:12px;color:#6B7A93;display:block;margin-top:4px}'
     + '.cta{display:inline-block;margin-top:22px;background:linear-gradient(135deg,'+p.accent+','+p.accentDark+');color:#fff;font-weight:700;padding:13px 20px;border-radius:10px;text-decoration:none}'
     + 'footer{margin-top:30px;padding-top:16px;border-top:1px solid #C9D6E8;font-size:11.5px;color:#6B7A93}</style></head><body>'
-    + '<h1>My Post-Storm Check: ' + p.label + '</h1><p class="sub">Saved '+dateStr+' &middot; Beneath the Surface by The Snag Tag</p>'
+    + '<h1>My When the Wind Drops Taster: ' + p.label + '</h1><p class="sub">Saved '+dateStr+' &middot; Beneath the Surface by The Snag Tag</p>'
     + '<h2>Check today</h2>' + rowsFlag
     + '<h2>Already sorted</h2>' + rowsSafe
     + '<a class="cta" href="'+GUMROAD_URL+'" target="_blank" rel="noopener">Get the complete Post-Storm Check tool &rarr;</a>'
@@ -770,15 +770,15 @@ function renderResult(){
   document.getElementById('qwBody').textContent = qw.how;
 
   const bridgeBody = flagCount === 0
-    ? 'You\'re sorted on all ' + total + ' of today\'s checks. The full Beneath the Surface Post-Storm Check tool goes much further: an 18-area storm sweep, a damage and photo log, a drying tracker, a findings register with photo evidence and a printable report.'
-    : 'Today\'s check found ' + flagCount + ' of the most commonly missed post-storm gaps. The full Beneath the Surface Post-Storm Check tool helps you record every damaged area, track drying, and keep the evidence your insurer needs.';
+    ? 'You\'re sorted on all ' + total + ' of today\'s checks. When the Wind Drops, the Full Edition, goes much further: an 18-area storm sweep, a damage and photo log, a drying tracker, an Evidence File with photo evidence and a printable record.'
+    : 'Today\'s check found ' + flagCount + ' of the most commonly missed post-storm gaps. When the Wind Drops, the Full Edition, helps you record every damaged area, track drying, and keep the evidence your insurer needs.';
   document.getElementById('bridgeBody').textContent = bridgeBody;
 
   const stillItems = BRIDGE_STILL[state.product] || [];
   document.getElementById('bridgeStillList').innerHTML = stillItems.map(li=>'<li>'+li+'</li>').join('');
 
   document.getElementById('proBtn').href = GUMROAD_URL;
-  document.getElementById('proBtn').textContent = 'Get the Post-Storm Check tool →';
+  document.getElementById('proBtn').textContent = 'Open When the Wind Drops - Full Edition →';
 }
 
 function applyMode(m){
